@@ -25,5 +25,5 @@ print('=' * 20 + "exam3" + '=' * 20)
 list1 = [i for i in range(1, 6)]
 list2 = [i for i in range(6, 11)]
 
-result = map(lambda a, b : a + b, list1, list2)
+result = map(lambda a, b : a - b if a - b > 0 else '-1', list1, list2)
 print(list(result))
