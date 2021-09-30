@@ -1,6 +1,7 @@
 # 1978. 소수 찾기
 import math
 
+
 a, b, c, d = map(int, input().split())
 
 result = [a, b, c, d]
