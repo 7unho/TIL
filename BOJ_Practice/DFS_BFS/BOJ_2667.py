@@ -32,3 +32,4 @@ for i in range(n):
 print(total)
 for item in sorted(cntList):
     print(item)
+

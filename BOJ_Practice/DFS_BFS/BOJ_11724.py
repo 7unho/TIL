@@ -4,7 +4,6 @@ input = sys.stdin.readline
 
 def dfs(v):
     visited[v] = True
-
     for i in graph[v]:
         if not visited[i]:
             dfs(i)
