@@ -16,7 +16,7 @@ arrays.sort(key=lambda x : len(x[0]), reverse=True)
 print(arrays)
 
 
-# alphabets = dict.fromkeys(alphabets)
+# alphabets = dict.fromkeys(alphabets)              
 
 # i = 0
 # for key in alphabets.keys():
