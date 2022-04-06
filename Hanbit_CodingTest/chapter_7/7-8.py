@@ -14,8 +14,8 @@ result = 0
 
 while start <= end:
     total = 0
+
     mid = (start + end) // 2
-    print(start, end)
 
     for x in array:
         total += (x - mid) if x > mid else 0
