@@ -9,6 +9,5 @@ for _ in range(n):
     array.append(int(input()))
 
 array.sort()
-
 for item in array:
     print(item)
