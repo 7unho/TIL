@@ -26,5 +26,4 @@ N = [int(input()) for _ in range(T)]
 
 for answer in N:
     print(solution(answer))
-    #ddasdasdasd
     
