@@ -11,4 +11,7 @@ d = [0 for _ in range(k + 1)]
 for i in range(n):
     w, v = map(int, input().split())
 
-    for j in range()
+    for j in range(w, (k + 1)):
+        d[j] = max(d[j], d[j - w] + v)
+
+print(d[k])
