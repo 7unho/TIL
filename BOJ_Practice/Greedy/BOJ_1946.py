@@ -3,7 +3,7 @@ import sys
 input = sys.stdin.readline
 
 t = int(input())
-answer = []
+
 for _ in range(t):
 
     n = int(input())
@@ -18,8 +18,5 @@ for _ in range(t):
             count += 1
             target = array[i][1]
 
-    answer.append(count)
-
-for i in answer:
-    print(i)
+    print(count)
     
