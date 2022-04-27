@@ -20,21 +20,14 @@ bags = [int(input()) for _ in range(k)]
 bags.sort()
 answer = 0
 jew_temp = []
-
 for i in range(k):
-    while True:
-        if not jewels:
-            break
-
-        temp = heapq.heappop(jewels)
-        
-        if bags[i] >= temp[1]:
-            answer -= temp[0]
-            break
-        
-        jew_temp.append(temp)
+    while jewels and bags[i] >= jewels[0][1]:
+        max_heap = heapq.heappop(jewels)
+        heapq.heappush(jew_temp, max_heap)
     
-    for jew in jew_temp:
-        heapq.heappush(jewels, (jew[0], jew[1]))
-
+    if jew_temp:
+        answer -= heapq.heappop(jew_temp)
+    elif not jewels:
+        break
+        
 print(answer)
