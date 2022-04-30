@@ -3,8 +3,14 @@
 import sys
 input = sys.stdin.readline
 
-user_input = input()
-target = input()
+user_input = input().rstrip()
+target = input().rstrip()
 
-print(True if target in user_input else False)
-print(test)
+before = len(user_input)
+user_input = user_input.replace(target, '')
+after = len(user_input)
+
+answer = 0 if after == before else (before - after) // len(target)
+
+print(before, after, user_input)
+print(answer)
