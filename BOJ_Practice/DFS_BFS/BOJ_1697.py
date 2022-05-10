@@ -18,5 +18,3 @@ while queue:
         if 0 <= node <= 10 ** 6 and not dist[node]:
             dist[node] = dist[v] + 1
             queue.append(node)
-
-print(dist)
