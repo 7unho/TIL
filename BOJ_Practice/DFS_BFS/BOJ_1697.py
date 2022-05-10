@@ -4,10 +4,12 @@
 from collections import deque
 import sys
 input = sys.stdin.readline
+MAX = 10 ** 6
 
 n, k = map(int, input().split())
 queue = deque([n])
-dist = [0] * (10 ** 6 + 1)
+dist = [0] * (MAX + 1)
+
 while queue:
     v = queue.popleft()
     if v == k:
@@ -15,6 +17,6 @@ while queue:
         break
 
     for node in [v - 1, v + 1, v * 2]:
-        if 0 <= node <= 10 ** 6 and not dist[node]:
+        if 0 <= node <= MAX and not dist[node]:
             dist[node] = dist[v] + 1
             queue.append(node)
