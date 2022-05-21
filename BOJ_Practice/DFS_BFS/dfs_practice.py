@@ -30,8 +30,8 @@ def dfs(x, y):
     if x < 0 or y < 0 or x >= n or y >= m:
         return False
     
-    if graph[x][y] == 0:
-        graph[x][y] = 1
+    if graph[x][y] > 0:
+        graph[x][y] = 0
         dfs(x, y + 1)
         dfs(x, y - 1)
         dfs(x + 1, y)
