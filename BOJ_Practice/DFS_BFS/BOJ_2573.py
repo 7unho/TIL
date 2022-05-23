@@ -66,10 +66,6 @@ while True:
     if ice_grp > 1:
         break
 
-    for i in range(n):
-        print(bfs_graph[i])
     answer += 1
     
-
-
-print(answer, ice_grp)
+print(answer)
