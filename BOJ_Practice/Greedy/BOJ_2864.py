@@ -9,3 +9,4 @@ answer_min = int(a.replace('6', '5')) + int(b.replace('6', '5'))
 answer_max = int(a.replace('5', '6')) + int(b.replace('5', '6'))
 
 print(answer_min, answer_max)
+

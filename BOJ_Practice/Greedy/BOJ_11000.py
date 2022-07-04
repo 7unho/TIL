@@ -13,8 +13,7 @@ array.sort(key=lambda x : x[0])
 
 for i in range(n):
     if len(result) != 0 and result[0] <= array[i][0]:
-        heapq.heappop(array)
-        continue
+        heapq.heappop(result)
     heapq.heappush(result, array[i][1])
 
 print(len(result))

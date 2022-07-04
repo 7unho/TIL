@@ -7,5 +7,4 @@ n, l = map(int, input().split())
 array = list(map(int, input().split()))
 array.sort()
 
-answer = 1
-
+answer = 0
