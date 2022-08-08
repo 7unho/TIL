@@ -24,7 +24,7 @@ for start in range(N):
         answer +=1
     
     # 모든 연산이 끝나면, interval_sum이 M보다 크거나 같다면
-    ## start를 이동해야 하므로 interval_sum에서 start좌표의 값을 빼준다.
+    ## start를 이동해야 하므로 interval_sum에서 start좌표의 
     interval_sum -= list[start]
 
 print(answer)

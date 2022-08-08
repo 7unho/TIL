@@ -4,33 +4,43 @@
 import sys
 input = sys.stdin.readline
 
-def make_answer(list):
-    global M
-    if len(list) >= M:
-        sum += sum(list[:M])
-        return (sum, list[M:].copy())
-    sum += sum(list)
-    return (sum, [])
-
-global M
 N, M = map(int, input().split())
-positive, negative = list(), list()
 
-input = list(map(int, input().split()))
+array = list(map(int, input().split()))
 
 # 음수, 양수 리스트 분리
-for item in input:
-    if item > 0 :
-        positive.append(item)
+negative = list()
+positive = list()
+
+# 초기화
+for item in array:
+    if item < 0:
+        negative.append(item)
         continue
-    negative.append(item)
+    positive.append(item)
 
-# 각 리스트 정렬
-positive.sort(reverse=True)
+# 절댓값이 최댓값인 순으로 내림차순 정렬
 negative.sort()
+positive.sort(reverse=True)
 
-# 최댓값 도출 후, answer 초기화
-param = positive if positive[0] > -negative[0] else negative
-answer  = make_answer(param)[0]
+n_temp = list()
+p_temp = list()
 
+for i in range(0, len(negative), M):
+    n_temp.append(abs(negative[i]))
 
+for i in range(0, len(positive), M):
+    n_temp.append(abs(positive[i]))
+
+answer = 0
+maximum = 0
+
+if n_temp:
+    maximum = max(n_temp[0], maximum)
+
+if p_temp:
+    maximum = max(p_temp[0], maximum)
+    
+answer = ((sum(n_temp) + sum(p_temp) * 2) - maximum)
+
+print(answer)
