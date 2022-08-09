@@ -11,15 +11,14 @@ array += array[:(k - 1)]
 
 # array k개 단위로 끊어주면서 부분 집합 찾기,
 # 찾은 부분 집합 가운데 쿠폰 번호를 포함한 집합에서 중복을 제거한 최댓값 출력
-current = [c]
+current = []
 
 for i in range(k):
     current.append(array[i])
 
-answer = len(set(current))
-
-for i in range(k, N): #    i:i + k
-    del current[i - k]
+answer = len(set(current + [c]))
+for i in range(k, N + k - 1): #    i:i + k
+    del current[0]
     current.append(array[i])
 
     answer = max(answer, len(set(current + [c])))
