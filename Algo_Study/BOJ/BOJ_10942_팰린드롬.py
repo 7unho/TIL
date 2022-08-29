@@ -1,22 +1,28 @@
 import sys
-input = sys.stdin.readline
+N = int(input())
 
-n = int(input())
-seq = list(map(int, input().split()))
-dp = [[0]*n for i in range(n)]
+num_arr = [int(x) for x in input().split()]
 
-for i in range(n):
-    dp[i][i]=1
-for i in range(n-1):
-    if seq[i]==seq[i+1] : dp[i][i+1]=1
-    else : dp[i][i+1]=0
-for cnt in range(n-2):
-    for i in range(n-2-cnt):
-        j = i+2+cnt
-        if seq[i]==seq[j] and dp[i+1][j-1]==1 :
-            dp[i][j]=1
+M = int(input())
 
-m = int(input())
-for _ in range(m):
-    start, end = map(int, input().split())
-    print(dp[start][end])
+DP = [[0] * (N) for _ in range(N)]
+
+## 길이가 1이라면 무조건 성립
+for i in range(N):
+    DP[i][i] = 1
+
+## 길이가 2일 때, 두 숫자가 같다면 성립
+for i in range(N - 1): # len == 2
+    if num_arr[i] == num_arr[i + 1]:
+        DP[i][i + 1] = 1
+
+for num_len in range(2, N): # len >= 3
+    for start in range(N - num_len):
+        end = start + num_len
+        if num_arr[start] == num_arr[end]:
+            if DP[start + 1][end - 1] == 1:
+                DP[start][end] = 1
+
+for _ in range(M):
+    S, E = map(int, sys.stdin.readline().split())
+    print(DP[S - 1][E - 1])
