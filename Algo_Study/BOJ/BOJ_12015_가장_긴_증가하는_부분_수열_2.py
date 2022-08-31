@@ -6,4 +6,7 @@ input = sys.stdin.readline
 
 N = int(input())
 array = list(map(int, input().split()))
+array.insert(0, 0)
+memo = [0]
 
+for case in cases:
