@@ -17,10 +17,6 @@ function regist() {
     };
   
     // user 정보 출력
-    console.log("ID = " + user.id + "\n" +
-                "PW = " + user.password + "\n" + 
-                "NAME = " + user.name + "\n" + 
-                "EMAIL = " + user.email + "\n" + 
-                "AGE = " + user.age + "\n");
+    console.log(JSON.stringify(user));
   }
   
