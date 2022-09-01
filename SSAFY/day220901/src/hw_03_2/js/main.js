@@ -1,11 +1,11 @@
 // register.html 의 form 에 있는 버튼을 눌렀을때 실행되는 함수
 function regist() {
     // 각 form 의 input 에 입력된 값들을 css 선택자를 이용하여 가져오기
-    let id = document.getElementById("id").value;
-    let password = document.getElementById("password").value;
-    let name = document.getElementById("name").value;
-    let email = document.getElementById("email").value;
-    let age = document.getElementById("age").value;
+    let id = document.querySelector("#id").value;
+    let password = document.querySelector("#password").value;
+    let name = document.querySelector("#name").value;
+    let email = document.querySelector("#email").value;
+    let age = document.querySelector("#age").value;
   
     // user 생성
     const user = {
