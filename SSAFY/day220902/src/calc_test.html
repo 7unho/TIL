@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/myFunc2.js"></script>
+    <script>
+        window.onload = function(){
+            var btnCal = document.querySelector("#btnCal");
+
+            btnCal.addEventListener("click", function(){
+                
+                var su1 = document.calcForm.su1.value;
+                var su2 = document.querySelector("[name=su2]").value;
+                var f = document.calcForm;
+    
+                if(su1 == '' || su2.length == 0){
+                    alert("두 개의 수를 입력해주세요 ! ! !");
+                    return;
+                }
+
+                // isNaN -> 숫자가 아닐 때, true 리턴
+                if(isNaN(su1) || isNaN(su2)){
+                    alert("숫자만 입력해주세요 ! ! !");
+                    f.su1.value = "";
+                    f.su2.value = "";
+                    f.su1.focus();
+                    return;
+                }
+
+                console.log("su1 >> " + su1);
+                console.log("su2 >> " + su2);
+        
+                var result = plus(parseInt(su1), parseInt(su2));
+                f.result.value = result;
+            })
+        }
+    </script>
+</head>
+<body>
+    <h3>심플계산기</h3>
+    <hr>
+    <form name="calcForm">
+        <input type="text" name="su1" size="4" maxlength="4"> + 
+        <input type="text" size="4" name="su2">
+        <input id="btnCal" type="button" value="계산"><br>
+        결과값 : 
+        <input type="text" name="result" size="4">
+    </form>
+</body>
+</html>
