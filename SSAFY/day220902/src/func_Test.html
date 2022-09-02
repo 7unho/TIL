@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>함수 테스트</title>
+    <script src="../js/myFunc.js"></script>
+    <script>
+        // function hello(){
+        //     console.log("HELLO");
+        // }
+
+        window.onload = function(){
+            let btn = document.querySelector("#callBtn");
+            btn.addEventListener("click", function(){
+                console.log("HELLO");
+            })
+        }
+
+        function hello(){
+            console.log("안녕 !!");
+        }
+
+        function hello(name){
+            if(name == undefined){
+                console.log("봉쥬르");
+            } else console.log("봉쥬르~ " + name);
+
+            var su = [1, 2, 3];
+        }
+    </script>
+</head>
+<!-- func_Test.html -->
+<body>
+    <h3>함수 테스트</h3>
+    <button id="callBtn">HELLO 호출</button>
+    <button id="hiBtn" onclick="hello()">안녕 호출</button><br>
+
+    <button id="goodBtn">Good 호출</button>
+</body>
+</html>
