@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .viewtime {
+            font-size: 30px;
+            color: magenta;
+        }
+    </style>
+    <script type="text/javascript" src="../js/httpRequest.js"></script>
+    <script type="text/javascript">
+        function getTime() {
+            sendRequest("1-03currenttime.jsp", null, viewTime, "GET");
+        }
+        
+        function viewTime() {
+            if (httpRequest.readyState == 4) {
+                if (httpRequest.status == 200) {
+                    var time = httpRequest.responseText;
+                    var div = document.getElementById("curtime");
+                    div.setAttribute("class", "viewtime");
+                    div.innerHTML = time;
+                }
+            }
+        }
+
+        window.onload = function () {
+            setInterval(getTime, 1000);
+        };
+
+    </script>
+</head>
+
+<body>
+    <h2>현재 시간 </h2>
+    <button oclick="javascript:viewTime();">시간 보기</button>
+</body>
+
+</html>

@@ -20,7 +20,7 @@ def solution(survey, choices):
     for i in range(len(survey)):
         if choices[i] <= 3:
             test[survey[i][0]] += 4 - choices[i]
-        elif choices[i] >= 4:
+        elif choices[i] >= 5:
             test[survey[i][1]] += choices[i] - 4
 
     if test['R'] >= test['T']:
