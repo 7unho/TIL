@@ -23,7 +23,7 @@ def solution(alp, cop, problems):
     dp[alp][cop] = 0
     for i in range(alp, max_alp + 1):
         for j in range(cop, max_cop + 1):
-            # 배열 범위벗어나지않게 
+            # 배열 범위벗어나지않게
             ## 알고력을 공부하는 경우
             if i + 1 <= max_alp:
                 dp[i + 1][j] = min (dp[i + 1][j], dp[i][j] + 1)
@@ -34,11 +34,11 @@ def solution(alp, cop, problems):
             # 모든문제 순회 하면서 
             for alp_req, cop_req, alp_rwd, cop_rwd, cost in problems:
                 # 현재 i,j 로 풀수있다면
-                ## i = 현재 알고력, ㅓ = 현재 코딩력
+                ## i = 현재 알고력, j = 현재 코딩력
                 if i >= alp_req and j >= cop_req:
                     # 풀어서 얻은 내 최종 알고,코딩력이 max_alp,max_cop 보다크면 그대로 max_alp,max_cop 에 저장 
                     next_alp, next_cop = min(max_alp, i + alp_rwd), min(max_cop, j + cop_rwd)
                     dp[next_alp][next_cop] = min(dp[next_alp][next_cop], dp[i][j] + cost)
-    return dp
+    return dp[max_alp][max_cop]
 
 print(solution(alp, cop, problems))
