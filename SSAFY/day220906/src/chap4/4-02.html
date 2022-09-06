@@ -36,6 +36,9 @@
       let btn = document.querySelector("#listBtn");
       btn.addEventListener("click", function () {
         // TODO : 4-02.xml 비동기 호출
+        fetch("4-02.xml")
+        .then((response) => response.text()) // response.text -> csv, xml 둘다 처리
+        .then((data) => makeList(data))
       });
 
       function makeList(data) {
@@ -50,7 +53,8 @@
           let tr = document.createElement("tr");
 
           let idTd = document.createElement("td");
-          idTd.appendChild(document.createTextNode(student.querySelector("id").textContent));
+          idTd.appendChild(document.createTextNode(student.querySelectorAll("id")[0].textContent));
+          // idTd.appendChild(document.createTextNode(student.querySelector("id").textContent));
           tr.appendChild(idTd);
 
           let nameTd = document.createElement("td");

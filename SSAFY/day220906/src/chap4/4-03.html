@@ -36,6 +36,9 @@
       let btn = document.querySelector("#listBtn");
       btn.addEventListener("click", function () {
         // TODO : 4-03.json 비동기 호출
+        fetch("4-03.json")
+        .then((response) => response.json())
+        .then((data) => makeList(data))
       });
 
       function makeList(data) {
@@ -56,7 +59,7 @@
           tr.appendChild(nameTd);
 
           let classTd = document.createElement("td");
-          classTd.appendChild(document.createTextNode(student.class));
+          classTd.appendChild(document.createTextNode(student["class"]));
           tr.appendChild(classTd);
 
           let gradeTd = document.createElement("td");

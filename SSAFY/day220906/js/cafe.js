@@ -11,9 +11,12 @@ window.onload = function () {
     "GET",
     false
   );
-
+  //sendRequest함수 ==> 사용자 정의 함수(커스텀 함수)
+  //sendRequest("요청URL", "name=gildong&pwd=1234",  programmingBook, "GET", false );
+  //sendRequest("요청URL", "매개변수",  콜백함수명, "HTTP요청방식", 비동기처리 );
   // 에세이 목록 요청.
   httpRequest2 = sendRequest("../data/essay.json", null, essayBook, "GET", true);
+
   /***************** 비동기 요청 end *****************/
 
   /***************** 투표 생성 start *****************/
@@ -68,9 +71,90 @@ window.onload = function () {
 };
 
 function programmingBook() {
+  //콜백함수 (이벤트 발생 후 호출되는 함수!!)
+  //httpRequest1 : 통신객체!!
+  //alert("ssafy::" + httpRequest1.readyState);
+  if (httpRequest1.readyState == 4) {
+    //요청페이지를 전부 받았을때
+    if (httpRequest1.status == 200) {
+      //서버의 상태가 정상페이지 상태!! ==>OK 200
+      //httpRequest1.responseText; //응답데이터를 String/객체로 받겠다
+      //httpRequest1.responseXML; //응답데이터를 XML Document객체로 받겠다
+      var books = httpRequest1.responseXML; //books는 Document객체
+      var booklist = books.querySelectorAll("book"); //booklist는 NodeList
+      //==> NodeList는 item
+      var len = booklist.length;
+      var bookView = "";
+
+      for (var i = 0; i < len; i++) {
+        var book = booklist[i];
+        var isbn = book.querySelector("isbn").childNodes[0].nodeValue; // xml에서 isbn 얻기
+        var title = book.querySelector("title").childNodes[0].nodeValue; // xml에서 제목 얻기
+        var price = book.querySelector("price").childNodes[0].nodeValue; // xml에서 가격 얻기
+        var desc = book.querySelector("description").childNodes[0].nodeValue; // xml에서 설명 얻기
+        // 책의 갯수만큼 화면구성
+        bookView += "<li>";
+        bookView += '<div class="menu_item">';
+        bookView += '  <div class="menu_item_img">';
+        bookView +=
+          '    <img src="../img/book/' +
+          isbn +
+          '.png" title="' +
+          desc +
+          '" alt="" />';
+        bookView += "  </div>";
+        bookView +=
+          '  <div class="menu_item_info">' +
+          title +
+          "<br />(" +
+          numberWithCommas(price) +
+          "원)</div>";
+        bookView += "</div>";
+        bookView += "</li>";
+      }
+      // 아이디가 plist인 div에 책화면을 html로 삽입.
+      document.querySelector("#plist").innerHTML = bookView;
+    }
+  }
 }
 
-function essayBook() {}
+function essayBook() {
+  // 서버로부터 data를 전부 받은 상태 (Completed)
+  if (httpRequest2.readyState == 4) {
+    // 서버로부터의 응답 상태 (OK)
+    if (httpRequest2.status == 200) {
+      // 서버에서 응답 온 data를 text로 받음.
+      var books = httpRequest2.responseText;
+      // 위의 text를 JSON객체로 변환.
+      var booklist = JSON.parse(books);
+      var len = booklist.length;
+      var bookView = "";
+      for (var i = 0; i < len; i++) {
+        var book = booklist[i];
+        bookView += "<li>";
+        bookView += '<div class="menu_item">';
+        bookView += '  <div class="menu_item_img">';
+        bookView +=
+          '    <img src="../img/book/' +
+          book.isbn +
+          '.png" title="' +
+          book.description +
+          '" alt="" />';
+        bookView += "  </div>";
+        bookView +=
+          '  <div class="menu_item_info">' +
+          book.title +
+          "<br />(" +
+          numberWithCommas(book.price) +
+          "원)</div>";
+        bookView += "</div>";
+        bookView += "</li>";
+      }
+      // 아이디가 elist인 div에 책화면을 html로 삽입.
+      document.querySelector("#elist").innerHTML = bookView;
+    }
+  }
+}
 
 // 정규표현식을 이용한 3자리마다 ,(comma) 찍기(가격)
 function numberWithCommas(x) {

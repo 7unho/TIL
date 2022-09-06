@@ -109,7 +109,7 @@
       <div id="map" style="width: 100%; height: 500px"></div>
       <script
         type="text/javascript"
-        src="//dapi.kakao.com/v2/maps/sdk.js?appkey= *** 발급받은 API KEY 입력 ***"
+        src="//dapi.kakao.com/v2/maps/sdk.js?appkey="
       ></script>
       <script type="text/javascript">
         var map;
@@ -195,7 +195,7 @@
         }
 
         document.querySelector("#btn-list").addEventListener("click", function () {
-          var serviceKey = " *** 발급받은 API KEY 입력 ***";
+          var serviceKey = "";
           var pageNo = "1";
           var numOfRows = "30";
           // server에서 넘어온 data
