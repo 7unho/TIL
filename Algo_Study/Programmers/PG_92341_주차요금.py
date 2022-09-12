@@ -21,6 +21,6 @@ def solution(fees, records):
 
     for i in range(1, len(records)):
         if records[i][1] != current_number:
-            currnet_sum = current_sum if current_sum == 0 else current_sum + 
+            currnet_sum = current_sum if current_sum == 0 else current_sum + d
     
 solution(fees, records)
