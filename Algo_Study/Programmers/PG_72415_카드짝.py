@@ -13,13 +13,15 @@ Allremoved = 1
 # 최소 조작 횟수
 MinCnt = math.inf
 
-D = ((-1, 0), (1, 0), (0, -1), (0, 1))
+dx = [1, -1, 0, 0]
+dy = [0, 0, 1, -1]
+
 
 # 제거된 카드상태, 시작 위치, 목적지를 매개변수로 받아 최단거리 산출
-def bfs(removed, src, distance):
+def bfs(removed, cursor, distance):
     visited = [[False for _ in range(4)] for _ in range(4)]
     q = queue.Queue()
-    q.put(src)
+    q.put(cursor)
     
     while q:
         current = q.get()
@@ -29,10 +31,10 @@ def bfs(removed, src, distance):
             return current[2]
         
         for i in range(4):
-            nx = current[0] + D[i][0]
-            ny = current[1] + D[i][1]
+            nx = current[0] + dx[i]
+            ny = current[1] + dy[i]
 
-            if nx < 0 or ny < 0 or nx > 3 or ny > 3:
+            if nx < 0 or ny < 0 or nx >= 4 or ny >= 4:
                 continue
 
             if not visited[nx][ny]:
@@ -45,11 +47,11 @@ def bfs(removed, src, distance):
                 if removed & (1 << Board[nx][ny]) == 0:
                     break
 
-                if nx + D[i][0] < 0 or nx + D[i][0] > 3 or ny + D[i][1] < 0 or ny + D[i][1] > 3:
+                if nx + dx[i] < 0 or nx + dx[i] >= 4 or ny + dy[i] < 0 or ny + dy[i] >= 4:
                     break
 
-                nx += D[i][0]
-                ny += D[i][1]
+                nx += dx[i]
+                ny += dy[i]
                 
             if not visited[nx][ny]:
                 visited[nx][ny] = True
@@ -59,7 +61,7 @@ def bfs(removed, src, distance):
 
 
 # 현재까지의 조작 횟수, 현재 까지의 삭제된 카드( 비트 형태 ), 현재 커서의 위치
-def permutate(cnt, removed, src):
+def permutate(cnt, removed, cursor):
     global MinCnt
 
     # 종료조건
@@ -77,20 +79,20 @@ def permutate(cnt, removed, src):
 
         # 순차로 카드를 제거하기 위한 과정
         ## (현재 커서부터 첫번째 카드까지, 첫 번째 카드부터 2번째 카드까지, 엔터 2번)의 합이 조작 횟수
-        one = bfs(removed, src, card[0]) + bfs(removed, card[0], card[1]) + 2
+        order = bfs(removed, cursor, card[0]) + bfs(removed, card[0], card[1]) + 2
 
         # 역순으로 카드를 제거하기 위한 과정
         ## (현재 커서부터 첫번째 카드까지, 첫 번째 카드부터 2번째 카드까지, 엔터 2번)의 합이 조작 횟수
-        two = bfs(removed, src, card[1]) + bfs(removed, card[1], card[0]) + 2
+        reverse = bfs(removed, cursor, card[1]) + bfs(removed, card[1], card[0]) + 2
 
         # 재귀 호출
         ## 순차 카드 제거
         ### 마지막 좌표(커서)가 card1에 가있으므로, card1에 커서
-        permutate(cnt + one, removed | 1 << num, card[1])
+        permutate(cnt + order, removed | 1 << num, card[1])
 
         ## 역순 카드 제거
         ### 마지막 좌표(커서)가 card0에 가있으므로, card0에 커서
-        permutate(cnt + two, removed | 1 << num, card[0])
+        permutate(cnt + reverse, removed | 1 << num, card[0])
         
 
 def solution(board, r, c):
