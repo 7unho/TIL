@@ -1,4 +1,4 @@
-# 입력값 : 도시 개수 ( N ), 버스의 수 ( M 
+# 입력값 : 도시 개수 ( N ), 버스의 수 ( M )
 # 출력값 : start -> end 까지의 최소비용
 import heapq
 import sys
@@ -12,6 +12,8 @@ dp = [INF] * ( N + 1 )
 
 for _ in range(M):
     start, end, dist = map(int, input().split())
+
+    # 현재 좌표(start) -> 다음 좌표(end)까지 걸리는 거리(dist)
     graph[start].append((end, dist))
 
 def solution(start):
@@ -35,7 +37,5 @@ def solution(start):
     
 
 start, end = map(int, input().split())
-
 solution(start)
-
 print(dp[end])
