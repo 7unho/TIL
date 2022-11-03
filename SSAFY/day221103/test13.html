@@ -16,13 +16,13 @@
       </ul>
       <h2>객체배열 - 번호,내용 출력</h2>
       <ul>
-        <li v-for="region, index in ssafy">
+        <li v-for="(region, index) in ssafy" :key="index">
           번호 : {{index + 1}}, 지역 : {{region.name}}, {{region.count}}개반
         </li>
       </ul>
       <h2>객체배열 - 번호,내용 출력</h2>
       <ul>
-        <li v-for="(region, index) in ssafy">
+        <li v-for="(region, index) in ssafy" :key="index">
           번호 : {{index + 1}}, 지역 : {{region.name}}, {{region.count}}개반
         </li>
       </ul>

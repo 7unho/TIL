@@ -12,6 +12,7 @@
       <label>반수 : </label>
       <input type="number" v-model.number="count" />
       <ul>
+        <!-- for와 if를 같이 쓰는 것은 가능은 한데 웬만하면 말아라 ! -->
         <li v-for="(region, index) in ssafy" v-if="region.count === count">
           지역 : {{region.name}}, {{region.count}}개반
         </li>

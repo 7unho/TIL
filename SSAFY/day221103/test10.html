@@ -10,14 +10,16 @@
     <div id="app">
       <div>
         <span>나이 : </span>
-        <input type="number" />
+        <input type="number" v-model="age" />
       </div>
       <div>
         요금 :
-        <span>무료</span>
-        <span>7000원</span>
-        <span>10000원</span>
-        <span>3000원</span>
+        <!-- show와 달리 조건절에 부합하지 않으면 렌더링 되지 않기에 성능이 좋다 -->
+        <span v-if="age < 0"></span>
+        <span v-else-if="age < 10">무료</span>
+        <span v-else-if="age < 20">7000원</span>
+        <span v-else-if="age < 65">10000원</span>
+        <span v-else="age=">3000원</span>
       </div>
     </div>
     <script>
@@ -25,6 +27,8 @@
         el: "#app",
         data: {
           age: "0",
+        },
+        methods: {
         },
       });
     </script>

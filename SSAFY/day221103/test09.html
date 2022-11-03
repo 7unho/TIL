@@ -8,15 +8,24 @@
   </head>
   <body>
     <div id="app">
-      <div>{{msg}}</div>
+      <div v-show="!isShow">{{msg}}</div>
+      <button @click="hide()">숨기기</button>
     </div>
     <script>
       new Vue({
         el: "#app",
         data: {
+          isShow : false,
           msg: "보이나요?",
         },
+        // 메서드는 methods 안에 선언해야 한다.
+        methods:{
+          hide() {
+            this.isShow = !this.isShow;
+          },
+        }
       });
+
     </script>
   </body>
 </html>
