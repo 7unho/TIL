@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+
+    /*
+    ES6 에서 추가된 화살표 함수(arrow function) - 1
+    
+    - 함수를 심플하게 정의할 수 있도록 해준다.
+    - 형태 
+      : (매개변수) => { 명령어;... } 
+      : 작성순서
+      : function 키워드를 삭제 -> ()안에 파라미터 이름을 넣는다. 
+                              -> 소괄호 다음에 화살표를 붙인다 
+                              -> {}을 작성하고 블럭안에 코드를 넣는다.
+*/
+    'use strict';
+
+    let func1 = function () {
+      console.log('익명 func1');
+    };
+    func1();
+
+    // 매개변수가 없는 경우의 arrow function
+    func1 = () => {
+      console.log('화살표 func1');
+    };
+    func1();
+
+    let func2 = function (num) {
+      console.log('익명 func2', num);
+    };
+    func2(1);
+
+    // 매개변수가 하나있는 경우
+    func2 = (num) => {
+      console.log('익명 func2', num);
+    };
+    func2(2);
+
+    Number.
+      func2 = (num) => {
+        console.log('익명 func2', num);
+      };
+    func2(3);
+
+    let func3 = function (num1, num2) {
+      console.log('익명함수 func3', num1, num2);
+    };
+    func3(1, 2);
+
+    // 매개변수가 여러개인 경우는 (..)로 묶어서 선언해야 함..
+    func3 = (num1, num2) => {
+      console.log('익명함수 func3', num1, num2);
+    };
+    func3(10, 20);
+
+    function test_1() {
+      let x = "let";
+      {
+        const x = "const";
+
+        // x 출력
+        if (x === "const") {
+          console.log("I am " + x);
+        }
+
+        // x = "changed";
+      }
+      // x 출력
+      if (x === "let") {
+        console.log("I am " + x);
+      }
+    }
+
+    test_1();
+
+    //====================
+    let a = 30;
+let b = 40;
+
+function test_3() {
+  this.a = 10;
+  this.b = 20;
+
+  let max = () => (a > b ? a : b);
+  console.log(max());
+
+  let min = function () {
+    return this.a < this.b ? this.a : this.b;
+  };
+  console.log(min());
+}
+
+test_3();
+
+  </script>
+</body>
+
+</html>

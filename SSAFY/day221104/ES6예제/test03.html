@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    /*
+    ES6
+
+    객체의 프로퍼티를 단축해서 사용
+    - 프로퍼티 초기화 단축 (Property Initializer Shorthand) 기능
+    - 간결한 메서드 (Concise Method)
+    - 자바스크립트에서 함수(function)은 ***1급 객체이다 !
+    */
+    const id = 'hong',
+      name = '홍길동',
+      age = 33;
+
+    const member1 = {
+      id: id,
+      name: name,
+      age: age,
+      info: function () {
+        console.log('member1 - info');
+      },
+    };
+    console.log(member1.id, member1.name, member1.age);
+    member1.info();
+
+    // 변수에 입력된 값을 객체에 설정할 때 변수의 이름을 프로퍼티 명으로 설정하는 상황
+    const member2 = {
+      id,
+      name,
+      age,
+      info: function () {
+        console.log('member2 - info');
+      },
+    };
+    console.log(member2.id, member2.name, member2.age);
+    member2.info();
+
+    // 객체의 함수 단축 : function 키워드를 제거
+    const member3 = {
+      id,
+      name,
+      age,
+      info() {
+        console.log('member3 - info');
+      },
+    };
+    console.log(member3.id, member3.name, member3.age);
+    member3.info();
+
+    function abc(){
+      console.log("abc 함수! ");
+    }
+
+    function abc2(){
+      console.log("abc2 함수 !");
+    }
+
+    abc();
+    abc2();
+  </script>
+</body>
+
+</html>

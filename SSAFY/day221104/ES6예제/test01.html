@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    /* 
+      자바스크립트 변수(ECMA6 추가) -> 영역( Scope )를 구분하기 위해 !
+        let
+        - ECMA6 부터 선언된 블럭에서만 사용할 수 있는 블록변수(let)가 제공됨
+        - 호이스팅 대상에서 제외
+        - 중복선언 불가능
+      */
+    var msg = 1;
+    if (msg === 1) {
+      let msg = 2; // 호이스팅 대상에서 제외됨
+      console.log(msg); // 2
+    }
+    console.log(msg); // 1
+
+    {
+      let msg2 = 3; // 호이스팅 대상에서 제외됨
+      console.log(msg2); // 3
+    }
+    // console.log(msg2);     // 에러발생함
+
+    let msg3 = 3;
+    // let msg3 = 4;      //  Identifier 'msg3' has already been declared
+  </script>
+</body>
+
+</html>

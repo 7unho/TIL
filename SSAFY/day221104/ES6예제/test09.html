@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    function getMember() {
+      return {
+        id: 'aaa',
+        name: 'bbb',
+        age: 22,
+      };
+    }
+    let m = getMember();
+    console.log(m.id, m.name, m.age);
+
+    let id = m.id;
+    let name = m.name;
+    let age = m.age;
+    console.log(id, name, age);
+
+    /*
+    let {
+      id,
+      name,
+      age
+    } = getMember();
+    console.log(id, name, age);
+   */
+  </script>
+</body>
+
+</html>

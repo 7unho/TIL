@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    /**
+     * forEach
+     * for~in 문 : 객체의 키를 반환
+     *
+     * es6-4
+     * for~of 문 : 객체의 값을 반환
+     */
+    const data = [1, 10, 100];
+    console.log("for~in");
+    for (let key in data) {
+      console.log(key + ":" + data[key]);
+    }
+
+    console.log("forEach");
+    data.forEach(function (element) {
+      console.log(element);
+    });
+
+    console.log("for~of");
+    for (let element of data) {
+      console.log(element);
+    }
+    
+  
+  </script>
+</body>
+
+</html>
