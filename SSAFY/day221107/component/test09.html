@@ -20,10 +20,12 @@
         },
         methods: {
           doAction() {
+            // 감시하고 있던 sendMsg에 이벤트가 발생하면 "안녕하세요 여러분"이 msg에 들어간다.
             this.$emit("sendMsg", "안녕하세요 여러분");
           },
         },
         created() {
+          //$0n sendMsg가 언제 올지 모르니까 감시하고 있어라 !
           this.$on("sendMsg", (msg) => {
             alert(msg);
             this.message = msg;

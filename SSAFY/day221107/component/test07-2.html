@@ -14,7 +14,9 @@
         :key="i"
         :area="area"
         v-bind:msg="msg[parseInt(Math.random() * 5)]"
-      >
+        :num="10" 
+      > 
+      <!-- :num -> 10을 숫자로 넘겨주기 위해 바인딩을 함 ( 자바스크립트에서 "10"은 숫자형으로 인식하기 떄문에 ) -->
       </child-comp>
     </div>
     <template id="childcomp">
@@ -25,6 +27,7 @@
     <script>
       Vue.component("child-comp", {
         props: {
+          num,
           area: String,
           msg: {
             type: String,
