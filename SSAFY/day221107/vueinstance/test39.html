@@ -28,15 +28,17 @@
       el: '#app',
       data: {
         selectedArea: '',
-        options: [
+        options: [],
+      },
+      created() {
+        // fetch
+        this.options = [
           { text: '서울', value: 'seoul' },
           { text: '광주', value: 'gwangju' },
           { text: '대전', value: 'daejeon' },
           { text: '구미', value: 'gumi' },
           { text: '부울경', value: 'buk' },
-        ],
-      },
-      created() {
+        ];
         param = 'gwangju';
         this.selectedArea = param;
       },
