@@ -76,33 +76,31 @@
         methods: {
           updateUser() {
             const params = new URL(document.location).searchParams;
-
+            alert(this.user.id);
             let userList = JSON.parse(localStorage.getItem("userList"));
-
+            
             for (let i = 0; i < userList.length; i++) {
               if (userList[i].id === this.user.id) {
                 // 배열 수정
-                this.updateUser(userList, i, this.user);
+                userList.splice(i, 1, this.user);
               }
             }
 
             localStorage.setItem("userList", JSON.stringify(userList));
 
             location.href = "list.html";
-            alert("수정 완료");
+            alert("수정 완료!");
           },
           deleteUser() {
-            alert("test");
             const params = new URL(document.location).searchParams;
-            console.log(params);
 
             let userList = JSON.parse(localStorage.getItem("userList"));
-            console.log(userList);
 
             for (let i = 0; i < userList.length; i++) {
               if (userList[i].id === this.user.id) {
                 // 배열 삭제
                 userList.splice(i, 1);
+                localStorage.removeItem("loginUser");
                 location.href = "list.html";
                 alert("삭제 완료");
                 break;

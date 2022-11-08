@@ -10,6 +10,11 @@
     text-decoration: none;
     color: white;
   }
+
+  .user-link{
+    text-decoration: none;
+    color: black;
+  }
   
   .text-center {
     text-align: center;

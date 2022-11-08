@@ -17,6 +17,7 @@
           </div>
           <div>
             <a href="#" v-if="getUser" @click="logout">로그아웃</a>
+            <a href="#" v-if="getUser" @click="doDetail">마이페이지</a>
             <a href="login.html" v-else>로그인</a>
             <a href="regist.html">회원가입</a>
             <a href="list.html">사용자목록</a>
@@ -68,6 +69,11 @@
           logout() {
             localStorage.removeItem("loginUser");
             location.href = "index.html";
+          },
+          
+          doDetail() {
+            let sessionId = localStorage.getItem("loginUser");
+            location.href = "detail.html?id=" + sessionId;
           }
         },
         // 계산된 속성 ( v-if 에 사용 )
