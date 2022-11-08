@@ -97,9 +97,8 @@
             newUserList.push(user);
 
             localStorage.setItem("userList", JSON.stringify(newUserList));
-
+            localStorage.setItem("loginUser", this.id);
             location.href = "list.html";
-
             alert("등록이 완료되었습니다.");
           },
         },

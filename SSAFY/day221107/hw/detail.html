@@ -83,6 +83,8 @@
               if (userList[i].id === this.user.id) {
                 // 배열 수정
                 userList.splice(i, 1, this.user);
+              //userList[i] = this.user; 가능은 하나 vue에선 위에 코드를 지향
+              //                         Vue에서는 virtual DOM을 이용하는데 데이터 바인딩이 잘 안될 수가 있다.
               }
             }
 
