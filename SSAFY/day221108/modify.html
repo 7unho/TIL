@@ -19,6 +19,7 @@
       <h1 class="underline">SSAFY 도서 수정</h1>
       <div class="regist_form">
         <label for="isbn">도서번호</label>
+        <!-- <input type="text" id="isbn" v-model="book.isbn" /><br /> -->
         <div class="view">{{ book.isbn }}</div>
         <label for="title">도서명</label>
         <input type="text" id="title" v-model="book.title" /><br />
@@ -40,19 +41,20 @@
       name: "modify",
       data() {
         return {
-          book: {
-            isbn: "",
-            title: "",
-            author: "",
-            price: "",
-            content: "",
-          }
+          book: null,
+          // book: {
+          //   isbn: "",
+          //   title: "",
+          //   author: "",
+          //   price: "",
+          //   content: "",
+          // },
+          // ii: null,
         };
       },
       created() {
         // url에서 파라미터정보 얻기.
         const params = new URL(document.location).searchParams;
-
         const books = JSON.parse(localStorage.getItem("books"));
 
         for (let i = 0; i < books.length; i++) {
@@ -60,7 +62,7 @@
             this.book = books[i];
           }
         }
-
+        // this.ii=this.book.isbn;
       },
       methods: {
         // 입력값 체크하기 - 체크가 성공하면 modifyBook 호출

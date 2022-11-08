@@ -29,8 +29,8 @@
         <label for="content">설명</label>
         <div class="view" v-html="enterToBr(book.content)"></div>
         <div style="padding-top: 15px">
-          <a @click="doModify(book.isbn)" class="btn">수정</a>
-          <a @click="doDelete(book.isbn)" class="btn">삭제</a>
+          <a @click="doModify"class="btn">수정</a>
+          <a @click="doDelete"class="btn">삭제</a>
           <a href="./list.html" class="btn">목록</a>
         </div>
       </div>
@@ -71,28 +71,22 @@
           // 문자열에 enter값을 <br />로 변경.(html상에서 줄바꿈 처리)
           return str.replace(/(?:\r\n|\r|\n)/g, "<brl />");
         },
-        doModify(isbn){
-          location.href = "modify.html?isbn=" + isbn;
+        doModify(){
+          location.href = "modify.html?isbn=" + this.book.isbn;
         },
-        doDelete(isbn){
+        doDelete(){
           let check = confirm("정말 삭제하시겠습니까?");
           if(!check) return;
+ 
+          let books = JSON.parse(localStorage.getItem("books"));
 
-          const params = new URL(document.location).searchParams;
-
-          let newbooks = []; 
-          let books = localStorage.getItem("books");
-          
-          if(books){
-            newbooks = JSON.parse(books);
+          for (let i = 0; i < books.length; i++) {
+            if (books[i].isbn === this.book.isbn) this.$delete(books, i);
           }
 
-          for (let i = 0; i < newbooks.length; i ++){
-            if(newbooks[i].isbn == params.get("isbn")) this.$delete(newbooks, i);
-          }
-
-          localStorage.setItem("books", JSON.stringify(newbooks));
+          localStorage.setItem("books", JSON.stringify(books));
           location.href = "list.html";
+          alert("삭제 완료!");
         }
       }
     });
