@@ -54,16 +54,21 @@
         checkValue() {
           // 사용자 입력값 체크하기
           // isbn, 제목, 저자, 가격, 설명이 없을 경우 각 항목에 맞는 메세지를 출력
-          if (this.isbn == "") {
+          if (!this.book.isbn) {
             alert("도서번호를 입력해주세요 !");
-          } else if (this.title == "") {
+            this.$refs.isbn.focus();
+          } else if (!this.book.title) {
             alert("제목을 입력해주세요 !");
-          } else if (this.author == "") {
+            this.$refs.title.focus();
+          } else if (!this.book.author) {
             alert("저자를 입력해주세요 !");
-          } else if (this.price == "") {
+            this.$refs.author.focus();
+          } else if (!this.book.price) {
             alert("가격을 입력해주세요 !");
-          } else if (this.content == "") {
+            this.$refs.price.focus();
+          } else if (!this.book.content) {
             alert("설명을 입력해주세요 !");
+            this.$refs.content.focus();
           } else {
             this.registBook();
           }
