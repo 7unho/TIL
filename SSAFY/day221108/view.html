@@ -25,7 +25,7 @@
         <label for="author">저자</label>
         <div class="view">{{ book.author }}</div>
         <label for="price">가격</label>
-        <div class="view">{{ book.price }}원</div>
+        <div class="view">{{ numberWithCommas(book.price) }}원</div>
         <label for="content">설명</label>
         <div class="view" v-html="enterToBr(book.content)"></div>
         <div style="padding-top: 15px">

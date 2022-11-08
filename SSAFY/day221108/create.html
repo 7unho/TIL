@@ -76,24 +76,10 @@
 
         registBook() {
           // 로컬스토리지에 저장된 데이터 가져오기
-          let newbooks = [];
-
-          const books = localStorage.getItem("books");
-
-          if (books) {
-            newbooks = JSON.parse(books);
-          }
-
-          // let book = {
-          //   isbn: this.isbn,
-          //   title: this.title,
-          //   author: this.author,
-          //   price: this.price,
-          //   content: this.content
-          // };
-
-          newbooks.push(this.book);
-          localStorage.setItem("books", JSON.stringify(newbooks));
+          const books = JSON.parse(localStorage.getItem("books"));
+          
+          books.push(this.book);
+          localStorage.setItem("books", JSON.stringify(books));
           alert("등록 성공 !");
           this.moveList();
         },
