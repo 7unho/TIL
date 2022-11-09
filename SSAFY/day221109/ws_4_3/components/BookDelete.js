@@ -13,18 +13,21 @@ export default {
     },
     created() {
         // localStorage에서 booklist로 저장된 도서 목록을 얻어온다.         
-        // this.books = JSON.parse(localStorage.getItem("books"));
+        this.books = JSON.parse(localStorage.getItem("books"));
+        setTimeout(this.doDelete, 1000);
+    },
+    methods: {
+        doDelete() {
+            const params = new URL(document.location).searchParams;
 
-        let books = JSON.parse(localStorage.getItem("books"));
-        const params = new URL(document.location).searchParams;
+            for (let i = 0; i < this.books.length; i++) {
+                if (this.books[i].isbn === params.get("isbn")) this.$delete(this.books, i);
+            }
 
-        for (let i = 0; i < books.length; i++) {
-            if (books[i].isbn === params.get("isbn")) this.$delete(books, i);
+            localStorage.setItem("books", JSON.stringify(this.books));
+            alert("삭제 완료!");
+            location.href = "list.html";
         }
-
-        localStorage.setItem("books", JSON.stringify(books));
-        alert("삭제 완료!");
-        location.href = "list.html";
     }
 };
 
