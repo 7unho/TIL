@@ -1,20 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>도서관리</title>
-  <link rel="stylesheet" href="./css/main.css" />
-  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-</head>
-
-<body>
-  <div id="app">
-    <div class="header">
-      <a href="index.html"> <img src="./img/ssafy_logo.png" class="ssafy_logo" /></a>
-      <p class="logo">도서관리</p>
-    </div>
+export default {
+    template: `
     <div>
       <h1 class="underline">도서 목록</h1>
       <div style="text-align: right">
@@ -50,13 +35,9 @@
         </table>
       </div>
       <div v-else>게시글이 없습니다.</div>
-    </div>
-  </div>
-  <script>
-    new Vue({
-      el: "#app",
-      name: "list",
-      data() {
+  </div>    
+    `,
+    data() {
         return {
           // 도서목록을 저장할 배열
           books: []
@@ -78,8 +59,6 @@
           location.href = "view.html?isbn=" + keyword;
         }
       }
-    });
-  </script>
-</body>
+  };
 
-</html>
+  

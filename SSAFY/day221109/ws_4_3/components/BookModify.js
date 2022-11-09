@@ -1,55 +1,31 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>도서관리</title>
-  <link rel="stylesheet" href="./css/main.css" />
-  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-</head>
-
-<body>
-  <div id="app">
-    <div class="header">
-      <a href="index.html"> <img src="./img/ssafy_logo.png" id="ssafy_logo" /></a>
-      <p class="logo">도서관리</p>
-    </div>
-    <div class="regist">
-      <h1 class="underline">SSAFY 도서 수정</h1>
-      <div class="regist_form">
+export default {
+    template: `
+    <div class="regist_form">
         <label for="isbn">도서번호</label>
-        <!-- <input type="text" id="isbn" v-model="book.isbn" /><br /> -->
-        <div class="view">{{ book.isbn }}</div>
+        <input type="text" id="isbn" v-model="book.isbn" ref="isbn" readonly /><br />
         <label for="title">도서명</label>
-        <input type="text" id="title" v-model="book.title" /><br />
+        <input type="text" id="title" v-model="book.title" ref="title" /><br />
         <label for="author">저자</label>
-        <input type="text" id="author" v-model="book.author" /><br />
+        <input type="text" id="author" v-model="book.author" ref="author" /><br />
         <label for="price">가격</label>
-        <input type="number" id="price" v-model="book.price" /><br />
+        <input type="number" id="price" v-model="book.price" ref="price" /><br />
         <label for="content">설명</label>
         <br />
-        <textarea id="content" v-html="book.content" cols="35" rows="5"></textarea><br />
-        <button @click="checkValue">수정</button>
+        <textarea id="content" name="content" v-model="book.content" ref="content" cols="35" rows="5"></textarea><br />
+        <button @click="checkValue">등록</button>
         <button @click="moveList">목록</button>
-      </div>
     </div>
-  </div>
-  <script>
-    new Vue({
-      el: "#app",
-      name: "modify",
-      data() {
+        `,
+
+    data() {
         return {
-          book: null,
-          // book: {
-          //   isbn: "",
-          //   title: "",
-          //   author: "",
-          //   price: "",
-          //   content: "",
-          // },
-          // ii: null,
+            book: {
+                isbn: "",
+                title: "",
+                author: "",
+                price: "",
+                content: "",
+            },
         };
       },
       created() {
@@ -102,13 +78,11 @@
           alert("수정 완료!");
 
         },
-
         moveList() {
           location.href = "list.html";
         }
       },
-    });
-  </script>
-</body>
+  };
 
-</html>
+
+

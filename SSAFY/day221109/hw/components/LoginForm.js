@@ -29,7 +29,7 @@ export default {
         password: this.password,
       };
 
-      this._______("login", user);
+      this.$emit("login", user);
     },
   },
 };

@@ -51,7 +51,7 @@ export default {
         age: this.age,
       };
 
-      this._______("regist", user);
+      this.$emit("regist", user);
     },
   },
 };

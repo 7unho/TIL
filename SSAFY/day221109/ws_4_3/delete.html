@@ -9,23 +9,20 @@
   </head>
   <body>
     <div id="app">
-      <div class="header">
-        <a href="index.html"> <img src="./img/ssafy_logo.png" class="ssafy_logo" /></a>
-        <p class="logo">도서관리</p>
-      </div>
-      <div>
-        <h1>SSAFY 도서 삭제</h1>
-        <div>삭제중...</div>
-      </div>
+      <header-nav></header-nav>
+      <book-delete></book-delete>
+      
     </div>
-    <script>
+    <script type="module">
+      import HeaderNav from "./components/HeaderNav.js";
+      import BookDelete from "./components/BookDelete.js";
       new Vue({
         el: "#app",
         name: "delete",
-        created() {
-          // url에서 파라미터정보 얻기.
-        
-        }
+        components:{
+          HeaderNav,
+          BookDelete,
+        },
       });
     </script>
   </body>

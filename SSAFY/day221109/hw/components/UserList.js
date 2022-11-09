@@ -36,7 +36,7 @@ export default {
   </div>
   `,
   // 전달 받은 cars를 출력
-  _______: {
+  props: {
     users: {
       type: Array,
     },

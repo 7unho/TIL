@@ -1,20 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>도서관리</title>
-  <link rel="stylesheet" href="./css/main.css" />
-  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-</head>
-
-<body>
-  <div id="app">
-    <div class="header">
-      <a href="index.html"> <img src="./img/ssafy_logo.png" id="ssafy_logo" /></a>
-      <p class="logo">도서관리</p>
-    </div>
+export default {
+    template: `
     <div class="regist">
       <h1 class="underline">SSAFY 도서 정보</h1>
       <div class="regist_form">
@@ -35,12 +20,8 @@
         </div>
       </div>
     </div>
-  </div>
-  <script>
-    new Vue({
-      el: "#app",
-      name: "view",
-      data: function () {
+    `,
+    data: function () {
         return {
           book: {
             isbn: "",
@@ -78,19 +59,7 @@
           let check = confirm("정말 삭제하시겠습니까?");
           if(!check) return;
  
-          let books = JSON.parse(localStorage.getItem("books"));
-
-          for (let i = 0; i < books.length; i++) {
-            if (books[i].isbn === this.book.isbn) this.$delete(books, i);
-          }
-
-          localStorage.setItem("books", JSON.stringify(books));
-          location.href = "list.html";
-          alert("삭제 완료!");
+          location.href = "./delete.html?isbn=" + this.book.isbn;
         }
-      }
-    });
-  </script>
-</body>
-
-</html>
+      },
+  };

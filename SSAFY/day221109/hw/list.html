@@ -11,7 +11,8 @@
   <body>
     <div id="app">
       <header-nav></header-nav>
-      <user-list _______></user-list>
+      <!-- :보낼 데이터=js에서 받을 데이터 변수명 -->
+      <user-list :users="users"></user-list>
     </div>
     <script type="module">
       import HeaderNav from "./components/HeaderNav.js";
