@@ -37,14 +37,9 @@
       promise
         .then((response) => {
           console.log("4", response);
+          console.log("5", response.data);
+          console.log("6", response.title);
           return response.data;
-        })
-        .then((data) => {
-          console.log("5", data);
-          return data.title;
-        })
-        .then((title) => {
-          console.log("6", title);
         })
         .catch((error) => {
           console.log("7", error);
@@ -52,7 +47,25 @@
         .finally(() => {
           console.log("8", "finally 실행");
         });
-    </script>
+      // promise
+      //   .then((response) => {
+      //     console.log("4", response);
+      //     return response.data;
+      //   })
+      //   .then((data) => {
+      //     console.log("5", data);
+      //     return data.title;
+      //   })
+      //   .then((title) => {
+      //     console.log("6", title);
+      //   })
+      //   .catch((error) => {
+      //     console.log("7", error);
+      //   })
+      //   .finally(() => {
+      //     console.log("8", "finally 실행");
+      //   });
+      </script>
   </head>
   <body></body>
 </html>
