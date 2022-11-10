@@ -1,21 +1,16 @@
 <template>
   <div id="app">
     <the-header></the-header>
-    <!-- <app-main></app-main> -->
-    <app-board></app-board>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
 import TheHeader from "@/components/TheHeader";
-// import AppMain from "@/views/AppMain";
-import AppBoard from "@/views/AppBoard";
 
 export default {
   components: {
     TheHeader,
-    // AppMain,
-    AppBoard,
   },
 };
 </script>

@@ -1,24 +1,58 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-// import HomeView from "../views/HomeView.vue";
+
+// lazy loading : 한 번에 import를 해온 후 사용
+import AppMain from "@/views/AppMain";
+import AppUser from "@/views/AppUser";
+
+// import AppBoard from "@/views/AppBoard";
 
 Vue.use(VueRouter);
 
 const routes = [
-  // {
-  //   path: "/",
-  //   name: "home",
-  //   component: HomeView,
-  // },
-  // {
-  //   path: "/about",
-  //   name: "about",
-  //   // route level code-splitting
-  //   // this generates a separate chunk (about.[hash].js) for this route
-  //   // which is lazy-loaded when the route is visited.
-  //   component: () =>
-  //     import(/* webpackChunkName: "about" */ "../views/AboutView.vue"),
-  // },
+  {
+    path: "/",
+    name: "main",
+    component: AppMain,
+  },
+  {
+    path: "/user",
+    name: "user",
+    component: AppUser,
+  },
+  {
+    path: "/board",
+    name: "board",
+    component: () => import("@/views/AppBoard"), // lazy loading과 달리 필요할 때만 import해서 사용함.
+    redirect: "/board/list", // /board로 들어오는 경로를 list가 기본이 되게
+    children: [              // /board로 들어온 경로의 하위 path mapping
+      {
+        path: "list", // Mapping("/board/list")
+        name: "boardlist",
+        component: () => import("@/components/board/BoardList"),
+      },
+      {
+        path: "write", // Mapping("/board/list")
+        name: "boardwrite",
+        component: () => import("@/components/board/BoardWrite"),
+      },
+      {
+        path: "view/:articleno", // Mapping("/board/list")
+        name: "boardView",
+        component: () => import("@/components/board/BoardView"),
+      },
+      {
+        path: "modify/:articleno", // Mapping("/board/list")
+        name: "boardmodify",
+        component: () => import("@/components/board/BoardModify"),
+      },
+      {
+        path: "delete/:articleno", // Mapping("/board/list")
+        name: "boarddelete",
+        component: () => import("@/components/board/BoardDelete"),
+      },
+    ],
+  },
 ];
 
 const router = new VueRouter({

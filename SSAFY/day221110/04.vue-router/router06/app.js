@@ -3,12 +3,11 @@ import Main from './components/Main.js';
 import Board from './components/Board.js';
 import QnA from './components/QnA.js';
 import Gallery from './components/Gallery.js';
-// import NotFound from './components/NotFound.js';
+import NotFound from './components/NotFound.js';
 import BoardView from './components/board/BoardView.js';
 import BoardUpdate from './components/board/BoardUpdate.js';
 import BoardWrite from './components/board/BoardWrite.js';
 import BoardList from './components/board/BoardList.js';
-
 // 라우터 객체 생성
 const router = new VueRouter({
   mode: 'history',
@@ -56,16 +55,16 @@ const router = new VueRouter({
       name: 'gallery',
       component: Gallery,
     },
-    // {
-    //   path: '/404',
-    //   name: 'notFound',
-    //   component: NotFound,
-    // },
-    // {
-    //   path: '*',
-    //   redirect: '/404',
-    //   // component: NotFond
-    // },
+    {
+      path: '/404',
+      name: 'notFound',
+      component: NotFound,
+    },
+    {
+      path: '*',
+      redirect: '/404',
+      component: NotFond
+    },
   ],
 });
 

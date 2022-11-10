@@ -1,10 +1,10 @@
 <template>
   <tr>
-    <td>{{ article.articleNo }}</td>
+    <td>{{ article.articleno }}</td>
     <td>{{ article.subject }}</td>
-    <td>{{ article.userName }}</td>
+    <td>{{ article.userid }}</td>
     <td>{{ article.hit }}</td>
-    <td>{{ article.registerTime }}</td>
+    <td>{{ article.regtime }}</td>
   </tr>
 </template>
 

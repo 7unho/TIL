@@ -1,29 +1,16 @@
 <template>
   <div>
     <h2>Vue를 이용한 게시판</h2>
-    <board-list></board-list>
-    <board-write></board-write>
-    <board-view></board-view>
-    <board-modify></board-modify>
-    <board-delete></board-delete>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-import BoardList from "@/components/board/BoardList";
-import BoardWrite from "@/components/board/BoardWrite";
-import BoardView from "@/components/board/BoardView";
-import BoardModify from "@/components/board/BoardModify";
-import BoardDelete from "@/components/board/BoardDelete";
 
 export default {
   name: "AppBoard",
   components: {
-    BoardList,
-    BoardWrite,
-    BoardView,
-    BoardModify,
-    BoardDelete,
+
   },
 };
 </script>
