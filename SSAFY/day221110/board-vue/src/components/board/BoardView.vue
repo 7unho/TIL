@@ -41,8 +41,6 @@ export default {
     // router가 넘겨주는 parameter 중. articleno의 값.
     http.get(`/board/${this.$route.params.articleno}`)
     .then(({data}) => (this.article = data));
-
-    
   },
 };
 </script>

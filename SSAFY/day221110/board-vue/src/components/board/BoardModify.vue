@@ -3,7 +3,7 @@
     <h1 class="underline">SSAFY 게시글 수정</h1>
     <div class="regist_form">
       <label for="userid">작성자</label>
-      <input type="text" id="userid" v-model="article.userid" ref="userid" /><br />
+      <input type="text" id="userid" v-model="article.userid" ref="userid" readonly/><br />
       <label for="subject">제목</label>
       <input type="text" id="subject" v-model="article.subject" ref="subject" /><br />
       <label for="content">내용</label>
@@ -27,8 +27,7 @@ export default {
   created() {
     // 비동기
     // TODO : 글번호에 해당하는 글정보 얻기.
-    http.get(`/board/${this.$route.params.articleno}`).then(({ data }) => (this.article = data));
-    // http.get(`/board/${this.$route.params.articleno}`).then(({data}) => console.log(data));
+    http.get(`/board/${this.$route.params.articleno}`).then(({ data }) => (this.article = data));    
   },
   methods: {
     // 입력값 체크하기 - 체크가 성공하면 registArticle 호출
@@ -49,9 +48,7 @@ export default {
       // 비동기
       // TODO : 글번호에 해당하는 글정보 수정.
       http.put("/board", this.article).then(({ data }) => {
-        let msg = "수정 처리 중 문제 발생";
-
-        // 스프링 writeArticle에서 리턴해주는 값( SUCCESS, FAIL )
+        let msg = "수정 처리 중 문제 발생";        
         if (data === "success") msg = "수정 성공 !";
         alert(msg);
 

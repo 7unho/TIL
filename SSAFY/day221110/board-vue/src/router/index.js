@@ -36,6 +36,8 @@ const routes = [
         name: "boardwrite",
         component: () => import("@/components/board/BoardWrite"),
       },
+
+      // 수정, 삭제, 상세정보는 글 번호를 param으로 보내줘야 하므로 :articleno 포함하기
       {
         path: "view/:articleno", // Mapping("/board/list")
         name: "boardView",
