@@ -48,7 +48,8 @@ export default {
       // 비동기
       // TODO : 글번호에 해당하는 글정보 수정.
       http.put("/board", this.article).then(({ data }) => {
-        let msg = "수정 처리 중 문제 발생";        
+        let msg = "수정 처리 중 문제 발생";
+        console.log(data); 
         if (data === "success") msg = "수정 성공 !";
         alert(msg);
 
