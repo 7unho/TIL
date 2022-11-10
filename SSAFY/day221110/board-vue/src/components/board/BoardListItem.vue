@@ -1,7 +1,11 @@
 <template>
   <tr>
     <td>{{ article.articleno }}</td>
-    <td>{{ article.subject }}</td>
+    <td>
+      <router-link :to="`/board/${article.articleno}`">
+        {{ article.subject }}
+      </router-link>
+    </td>
     <td>{{ article.userid }}</td>
     <td>{{ article.hit }}</td>
     <td>{{ article.regtime }}</td>
@@ -17,4 +21,6 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+
+</style>

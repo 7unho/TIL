@@ -54,7 +54,9 @@ export default {
   },
   methods: {
     moveWrite() {
-      console.log("글쓰러 가자!!!");
+      // 컴포넌트 바꿔치기
+      // 현재 router를 boardwrite로 바꾸기
+      this.$router.push({ name: "boardwrite"}); // /를 붙이면 /board/write로 해줘야댐. ( 경로 다 붙이기 )
     },
   },
 };

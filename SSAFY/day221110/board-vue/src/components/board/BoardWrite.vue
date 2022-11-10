@@ -14,8 +14,9 @@
     </div>
   </div>
 </template>
-
 <script>
+import http from "@/util/http-common";
+
 export default {
   name: "BoardWrite",
   data() {
@@ -32,6 +33,8 @@ export default {
       // 작성자아이디, 제목, 내용이 없을 경우 각 항목에 맞는 메세지를 출력
       let err = true;
       let msg = "";
+      
+      // 쉼표 연산자
       !this.userid && ((msg = "작성자 입력해주세요"), (err = false), this.$refs.userid.focus());
       err && !this.subject && ((msg = "제목 입력해주세요"), (err = false), this.$refs.subject.focus());
       err && !this.content && ((msg = "내용 입력해주세요"), (err = false), this.$refs.content.focus());
@@ -43,11 +46,27 @@ export default {
     registArticle() {
       // 비동기
       // TODO : 글번호에 해당하는 글정보 등록.
-      console.log("글작성 하러가자!!!!");
+      let article = {
+        userid: this.userid,
+        subject: this.subject,
+        content: this.content,
+      }
+
+      // axios.post(url, data)
+      // 스프링에서의 localhost:port/contextRoot/board/article 에 매핑
+      http.post("/board", article).then(({data}) => {
+        let msg = "등록 처리 중 문제 발생";
+
+        // 스프링 writeArticle에서 리턴해주는 값( SUCCESS, FAIL )
+        if(data === "success") msg = "등록 성공 !";
+        alert(msg);
+
+        this.moveList();
+      });
     },
 
     moveList() {
-      console.log("글목록 보러가자!!!");
+      this.$router.push({ name: "boardlist"});
     },
   },
 };

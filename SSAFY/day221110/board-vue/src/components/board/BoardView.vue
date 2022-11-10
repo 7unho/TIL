@@ -16,15 +16,17 @@
       <div class="view">{{ article.content }}</div>
 
       <div style="padding-top: 15px">
-        <a href="" class="btn">수정</a>
-        <a href="" class="btn">삭제</a>
-        <a href="" class="btn">목록</a>
+        <router-link :to="{name: 'boardmodify', params: { articleno : article.articleno }}" class="btn">수정</router-link>
+        <router-link :to="{name: 'boarddelete', params: { articleno : article.articleno }}" class="btn">삭제</router-link>
+        <router-link :to="{name: 'boardlist'}" class="btn">목록</router-link>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import http from "@/util/http-common";
+
 export default {
   name: "BoardView",
   data() {
@@ -35,14 +37,12 @@ export default {
   created() {
     // 비동기
     // TODO : 글번호에 해당하는 글정보 얻기.
-    this.article = {
-      articleno: 10,
-      userid: "안효인",
-      subject: "안녕하세요",
-      content: "안녕하세요!!!!",
-      hit: 10,
-      regtime: "2022-11-08 17:03:15",
-    };
+    
+    // router가 넘겨주는 parameter 중. articleno의 값.
+    http.get(`/board/${this.$route.params.articleno}`)
+    .then(({data}) => (this.article = data));
+
+    
   },
 };
 </script>
