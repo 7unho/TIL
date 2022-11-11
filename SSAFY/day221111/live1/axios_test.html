@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <!-- ======================================================================================================================================================================== -->
+        <div>
+            <h3>글목록</h3>
+            <table border="1">
+                <tr>
+                    <th>글번호</th>
+                    <th>제목</th>
+                    <th>작성자</th>
+                    <th>작성일</th>
+                </tr>
+                <tr v-for="(info, index) in infos" :key="index">
+                    <th>{{ info.no }}</th>
+                    <th><a @click="viewDetail(info.no)">{{ info.title }}</a></th>
+                    <th>{{ info.writer }}</th>
+                    <th>{{ info.regtime | transDate }}</th>
+                </tr>
+            </table>
+        </div>
+        <!-- ======================================================================================================================================================================== -->
+        <div id="create">
+            <div>
+                <h3>입력폼</h3>
+                제목 :<input type="text" v-model="createBoard.title"><br>
+                작성자 :<input type="text" v-model="createBoard.writer"><br>
+                내용: <textarea cols="30" rows="10" v-model="createBoard.content"></textarea>
+                <button @click="newPost">등록</button>
+            </div>
+        </div>
+        <!-- ======================================================================================================================================================================== -->
+        <div id="update">
+            <h3>수정폼</h3>
+            글번호 :<input type="text" v-model="updateBoard.no" readonly><br>
+            제목 :<input type="text" v-model="updateBoard.title"><br>
+            작성자 :<input type="text" v-model="updateBoard.writer"><br>
+            내용: <textarea cols="30" rows="10" v-model="updateBoard.content"></textarea>
+            <button @click="modifyBoard(updateBoard)">수정</button>
+            <button @click="deleteBoard(updateBoard)">삭제</button>
+        </div>
+        <!-- ======================================================================================================================================================================== -->
+    
+
+    </div>
+    <script>
+        const address = "http://localhost:9999/api/board";
+        new Vue({
+            el: "#app",
+            data: {
+                infos: [],
+                board: {
+                    title: "",
+                    writer: "",
+                    content: "",
+                },
+                createBoard: {
+                    title: "",
+                    writer: "",
+                    content: "",
+                },
+                updateBoard: {
+                    no: "",
+                    title: "",
+                    writer: "",
+                    content: "",
+                }
+            },
+            created() {
+                axios({
+                    url: address,
+                    method: "get",
+                }).then(({ data }) => { this.infos = data; });
+
+                // axios.get(address)
+                //     .then(({ data }) => {this.infos = data;})
+                //     .then((error) => { console.log(error) });
+            },
+            methods: {
+                newPost() {
+                    let board = {
+                        title: this.createBoard.title,
+                        writer: this.createBoard.writer,
+                        content: this.createBoard.content,
+                    }
+
+                    axios({
+                        url: address,
+                        method: "post",
+                        data: board,
+                    }).then(({ data }) => {
+                        let msg = "글 등록 중 문제 발생";
+
+                        if (data == 'success') msg = "글 등록 완료 !";
+                        alert(msg);
+                        location.reload();
+                    });
+                },
+                viewDetail(no) {
+                    axios({
+                        mothod: "get",
+                        url: address + `/${no}`,
+                    }).then(({data}) => {
+                        this.updateBoard = data;
+                    })
+
+                },
+                modifyBoard(board){
+                    axios({
+                        method: "put",
+                        url: address + `/${board.no}`,
+                        data: board,
+                    }).then((response) => {
+                        let msg = "글 수정 중 문제 발생";
+                        console.log(response);
+                        if( response.data == 'success') msg = "글 수정 완료 !";
+                        alert(msg);
+                        location.reload();
+                    })
+                },
+                deleteBoard(board){
+                    axios({
+                        method: "delete",
+                        url: address + `/${board.no}`,
+                        data: board,
+                    }).then(({data}) => {
+                        let msg = "글 삭제 중 문제 발생";
+
+                        if( data == 'success') msg = "글 삭제 완료 !";
+                        alert(msg);
+                        location.reload();
+                    })
+                }
+            },
+            filters: {
+                transDate: function (regtime) {
+
+                    if (!regtime) return '';
+
+                    let js_date = new Date(regtime);
+
+                    let year = js_date.getFullYear();
+                    let month = js_date.getMonth() + 1;
+                    let day = js_date.getDate();
+
+                    if (month < 10) month = "0" + month;
+                    if (day < 10) day = "0" + day;
+
+                    return year + "년 " + month + "월 " + day + "일";
+                }
+
+            }
+        });
+    </script>
+</body>
+
+</html>

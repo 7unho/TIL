@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Axios테스트1</title>
+</head>
+
+<body>
+    <script>
+        //객체 생성하기
+        const promise = new Promise((resolve, reject) => {
+            console.log(">>>Promise");
+            // console(1/0);
+            resolve("then정상실행");  //정상 실행 (then)
+            // reject("catch에러발생")   //에러 발생 (catch)
+        });
+
+        promise.then((data) => { 
+            console.log(data);
+            return "서울 13반";  // then도 하나의 함수이기 때문에, return한 값을 다음 then에서 받을 수 있다.
+        })
+        .then((data) => { console.log(data); })
+        .catch((data) => { console.log(data); })
+        .finally(() => {console.log("finally")});
+    </script>
+</body>
+
+</html>
