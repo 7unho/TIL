@@ -5,8 +5,7 @@
             <b-button @click="moveWrite" variant="primary">글작성</b-button>
         </div>
         <div v-if="articles.length">
-            <b-table striped hover id="article-list" :fields="fields" :items="articles" :filter="regtime"
-                :filter-function="transDate">
+            <b-table striped hover id="article-list" :fields="fields" :items="articles">
 
                 <!-- b-table 안에서 태그에 기능넣고 싶을 떄, template태그 안에서 작성해주면 된다!  -->
                 <!-- 1. 특정 컬럼에 클릭 이벤트 -->
