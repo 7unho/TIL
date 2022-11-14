@@ -1,32 +1,38 @@
 <template>
     <div>
-        <h1 class="underline">글 상세보기</h1>
-        <div>
-            <b-form>
-                <b-form-group id="input-group-1" label="글 번호" label-for="input-1" description="">
-                    <b-form-input id="input-1" v-model="board.no" type="text" readonly>
-                    </b-form-input>
-                </b-form-group>
+        <div class="container">
+            <b-card bg-variant="light">
+                <b-form-group label-cols-lg="3" label="글 상세보기" label-size="lg" label-class="font-weight-bold pt-0"
+                    class="mb-0">
+                    <b-form-group label="글번호:" label-for="nested-street" label-cols-sm="2" label-align-sm="right">
+                        <b-form-input v-model="board.no" readonly></b-form-input>
+                    </b-form-group>
 
-                <b-form-group id="input-group-2" label="글 제목" label-for="input-2">
-                    <b-form-input id="input-2" v-model="board.title" type="text" placeholder="글 제목" readonly required>
-                    </b-form-input>
-                </b-form-group>
+                    <b-form-group label="글제목:" label-for="nested-city" label-cols-sm="2" label-align-sm="right">
+                        <b-form-input id="input-2" v-model="board.title" type="text" placeholder="글 제목" readonly
+                            required>
+                        </b-form-input>
+                    </b-form-group>
 
-                <b-form-group id="input-group-3" label="작성자:" label-for="input-3">
-                    <b-form-input id="input-3" v-model="board.writer" placeholder="작성자" readonly required></b-form-input>
-                </b-form-group>
+                    <b-form-group label="작성자:" label-for="nested-state" label-cols-sm="2" label-align-sm="right">
+                        <b-form-input id="input-3" v-model="board.writer" placeholder="작성자" readonly required>
+                        </b-form-input>
+                    </b-form-group>
 
-                <b-form-group id="input-group-4" label="내용:" label-for="input-4">
-                    <b-form-textarea id="input-4" v-model="board.content" placeholder="내용..." readonly required>
-                    </b-form-textarea>
+                    <b-form-group label="내용:" label-for="nested-country" label-cols-sm="2" label-align-sm="right">
+                        <b-form-textarea id="input-4" v-model="board.content" placeholder="내용..." readonly required>
+                        </b-form-textarea>
+                    </b-form-group>
+                    <div>
+                        <b-button-group>
+                            <b-button :to="{ name: 'boardmodify', params: { no: board.no } }" variant="outline-primary" >수정
+                            </b-button>
+                            <b-button @click="deleteBoard(board)" variant="outline-danger">삭제</b-button>
+                            <b-button :to="{ name: 'boardlist' }" variant="outline-info">목록</b-button>
+                        </b-button-group>
+                    </div>
                 </b-form-group>
-                <div style="padding-top: 15px">
-                    <b-button :to="{ name: 'boardmodify', params: { no: board.no } }" pill variant="primary">수정</b-button>
-                    <b-button @click="deleteBoard(board)" pill variant="danger">삭제</b-button>
-                    <b-button :to="{ name: 'boardlist' }" pill variant="success">목록</b-button>
-                </div>
-            </b-form>
+            </b-card>
         </div>
     </div>
 </template>
