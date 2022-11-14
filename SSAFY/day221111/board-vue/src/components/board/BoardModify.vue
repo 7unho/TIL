@@ -46,7 +46,7 @@ export default {
             method: "get"
         }).then(({ data }) => {
             this.board = data;
-        })
+        }) 
     },
     data() {
         return {
