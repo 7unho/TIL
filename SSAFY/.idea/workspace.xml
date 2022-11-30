@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="2c6f3b1d-8166-4e4a-baff-1e2ff23e86eb" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/day221115/board-housedeal-todolist-배포" beforeDir="false" afterPath="$PROJECT_DIR$/day221115/board-housedeal-todolist-배포" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/day221115/board-housedeal-todolist-배포/src/api/http.js" beforeDir="false" afterPath="$PROJECT_DIR$/day221115/board-housedeal-todolist-배포/src/api/http.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/day221115/board-housedeal-todolist-배포/src/components/board/item/BoardInputItem.vue" beforeDir="false" afterPath="$PROJECT_DIR$/day221115/board-housedeal-todolist-배포/src/components/board/item/BoardInputItem.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/day221115/board-housedeal-todolist-배포/src/components/house/HouseSearchBar.vue" beforeDir="false" afterPath="$PROJECT_DIR$/day221115/board-housedeal-todolist-배포/src/components/house/HouseSearchBar.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/day221115/vuex-test" beforeDir="false" afterPath="$PROJECT_DIR$/day221115/vuex-test" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/day221115/vuex-test/.browserslistrc" beforeDir="false" afterPath="$PROJECT_DIR$/day221115/vuex-test/.browserslistrc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/day221115/vuex-test/.eslintrc.js" beforeDir="false" afterPath="$PROJECT_DIR$/day221115/vuex-test/.eslintrc.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/day221115/vuex-test/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/day221115/vuex-test/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/day221115/vuex-test/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/day221115/vuex-test/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/day221115/vuex-test/babel.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/day221115/vuex-test/babel.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/day221115/vuex-test/jsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/day221115/vuex-test/jsconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/day221115/vuex-test/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/day221115/vuex-test/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/day221115/vuex-test/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/day221115/vuex-test/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/day221115/vuex-test/public/favicon.ico" beforeDir="false" afterPath="$PROJECT_DIR$/day221115/vuex-test/public/favicon.ico" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/day221115/vuex-test/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/day221115/vuex-test/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/day221115/vuex-test/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/day221115/vuex-test/src/App.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/day221115/vuex-test/src/assets/logo.png" beforeDir="false" afterPath="$PROJECT_DIR$/day221115/vuex-test/src/assets/logo.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/day221115/vuex-test/src/components/HelloWorld.vue" beforeDir="false" afterPath="$PROJECT_DIR$/day221115/vuex-test/src/components/HelloWorld.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/day221115/vuex-test/src/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/day221115/vuex-test/src/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/day221115/vuex-test/src/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/day221115/vuex-test/src/router/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/day221115/vuex-test/src/store/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/day221115/vuex-test/src/store/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/day221115/vuex-test/src/views/AboutView.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/day221115/vuex-test/src/views/HomeView.vue" beforeDir="false" afterPath="$PROJECT_DIR$/day221115/vuex-test/src/views/HomeView.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/day221115/vuex-test/vue.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/day221115/vuex-test/vue.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/day221117/board-housedeal-todolist-jwtlogin/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/day221117/board-housedeal-todolist-jwtlogin/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/day221117/board-housedeal-todolist-jwtlogin/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/day221117/board-housedeal-todolist-jwtlogin/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/day221117/board-housedeal-todolist-jwtlogin/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/day221117/board-housedeal-todolist-jwtlogin/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/day221117/board-housedeal-todolist-jwtlogin/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/day221117/board-housedeal-todolist-jwtlogin/src/App.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/day221117/board-housedeal-todolist-jwtlogin/src/assets/logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/day221117/board-housedeal-todolist-jwtlogin/src/components/HelloWorld.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/day221117/board-housedeal-todolist-jwtlogin/src/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/day221117/board-housedeal-todolist-jwtlogin/src/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/day221117/board-housedeal-todolist-jwtlogin/src/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/day221117/board-housedeal-todolist-jwtlogin/src/router/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/day221117/board-housedeal-todolist-jwtlogin/src/store/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/day221117/board-housedeal-todolist-jwtlogin/src/store/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/day221117/board-housedeal-todolist-jwtlogin/src/views/AboutView.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/day221117/board-housedeal-todolist-jwtlogin/src/views/HomeView.vue" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectId" id="2IDmw4Wz2AcgRlAYTYOv2uuYNPY" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "/Users/unknownflower/Desktop/workspace/TIL/SSAFY"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="2c6f3b1d-8166-4e4a-baff-1e2ff23e86eb" name="Changes" comment="" />
+      <created>1669724763954</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1669724763954</updated>
+      <workItem from="1669724766617" duration="34000" />
+    </task>
+    <servers />
+  </component>
+</project>
