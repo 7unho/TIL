@@ -2,6 +2,9 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/SSAFY/day221115/board-housedeal-todolist-배포" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/SSAFY/day221115/vuex-test" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/SSAFY/day221117/board-housedeal-todolist-jwtlogin" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/java" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/java/day220721" vcs="Git" />
   </component>
